@@ -1,6 +1,7 @@
 # Blogful_api!
 
-This is a boilerplate project used for starting new projects!
+Api migration and test first development
+<!-- This is a boilerplate project used for starting new projects! -->
 
 <!-- ## Set up 
 
@@ -15,6 +16,8 @@ Complete the folowing steps to start a new project (NEW-PROJECT-NAME): -->
 
 ## Scripts 
 Start the application `npm start`
+
+Start dev server `npm run dev`
 
 Start nodemon for the application `npm run dev`
 
