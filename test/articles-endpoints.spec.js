@@ -107,7 +107,7 @@ describe('Articles Endpoints', function() {
           .get(`/api/articles/${maliciousArticle.id}`)
           .expect(200)
           .expect(res => {
-            expect(res.body.title).to.eql('Naughty naughty &lt;script&gt;alert(\"xss\");&lt;/script&gt;')
+            expect(res.body.title).to.eql('Naughty naughty very naughty &lt;script&gt;alert(\"xss\");&lt;/script&gt;')
             expect(res.body.content).to.eql(`Bad image <img src="https://url.to.file.which/does-not.exist">. But not <strong>all</strong> bad.`)
           })
       })
@@ -212,7 +212,7 @@ describe('Articles Endpoints', function() {
     })
   })
 
-  describe.only(`PATCH /api/articles/:article_id`, () => {
+  describe(`PATCH /api/articles/:article_id`, () => {
     context(`Given no articles`, () => {
       it(`responds with 404`, () => {
         const articleId = 123456
@@ -242,8 +242,10 @@ describe('Articles Endpoints', function() {
           ...testArticles[idToUpdate - 1],
           ...updateArticle
         }
+        console.log()
         return supertest(app)
-          .patch(`api/articles/${idToUpdate}`)
+          .patch(`/api/articles/${idToUpdate}`)
+          
           .send(updateArticle)
           .expect(204)
           .then(res => 
