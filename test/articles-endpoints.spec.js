@@ -293,11 +293,3 @@ describe('Articles Endpoints', function() {
     })  
   })
 })
-
-
-
-
-
-
-
-
